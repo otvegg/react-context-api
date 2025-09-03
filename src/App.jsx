@@ -14,7 +14,7 @@ function App() {
 
     useEffect(() => {
         const sometheme = localStorage.getItem("theme")
-        console.log(sometheme)
+        // console.log(sometheme)
         if (sometheme != null) setTheme(sometheme)
         else setTheme("light")
     },[])

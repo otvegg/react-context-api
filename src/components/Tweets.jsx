@@ -1,23 +1,24 @@
-import { ThemeContext } from '../App';
+import { ThemeContext, UserContext } from '../App';
 import CreateTweet from './CreateTweet'
 import Tweet from './Tweet'
 import { useState, useContext } from 'react'
 
-export default function Tweets({ tweets, setTweets }) {
-    const { theme, setTweets, tweets } = useContext(ThemeContext);
+export default function Tweets() {
+    const { theme } = useContext(ThemeContext);
+    const { setTweets, tweets } = useContext(UserContext)
     return (
         <main>
             <div className={theme === 'dark' ? 'top-bar dark' : 'top-bar'}>
                 <h2 className="title">Home</h2>
             </div>
 
-            <CreateTweet tweets={tweets} setTweets={setTweets} theme={theme} />
+            <CreateTweet />
 
             <div className="show-more-tweets">
                 <p>Show 35 Tweets</p>
             </div>
 
-            {tweets.map((tweet, index) => <Tweet tweet={tweet} theme={theme} key={index} />)}
+            {tweets.map((tweet, index) => <Tweet tweet={tweet} key={index} />)}
         </main>
     )
 }
