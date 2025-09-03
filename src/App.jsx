@@ -28,9 +28,9 @@ function App() {
     return (
         <div className="container">
             <ThemeContext.Provider value={{theme, setTheme}}>
-                <UserContext.Provider value={{ user }}>
+                <UserContext.Provider value={{ user, setTweets, tweets }}>
                     <Header />
-                    <Tweets tweets={tweets} setTweets={setTweets} />
+                    <Tweets />
                 </UserContext.Provider>
                 <RightSide />
             </ThemeContext.Provider>
